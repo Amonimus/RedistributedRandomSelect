@@ -20,7 +20,7 @@ class RandomSampleOperator(bpy.types.Operator):
         self.picks: dict = {}
         self.seq: list = []
         self.size: int = 16
-        self.runs: int = 16
+        self.runs: int = 64
         self.done_runs: int = 0
 
     def execute(self, context: bpy.types.Context) -> dict:
@@ -175,7 +175,7 @@ class RandomSampleOperator(bpy.types.Operator):
         #self.redraw()
         if self.done_runs == 0:
             self.redraw()
-            time.sleep(5)
+            time.sleep(1)
         #take_idx: str = self.rand_select()
         take_idx: str = self.rand_w_select()
         self.bars[take_idx].color = (1.0, 0.0, 0.0, 1.0)
